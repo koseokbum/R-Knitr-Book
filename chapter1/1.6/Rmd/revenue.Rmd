@@ -1,0 +1,40 @@
+월간 매출 보고서
+=======================
+
+### SKBo 
+
+<hr>
+
+```{r echo=FALSE, message=FALSE}
+opts_chunk$set(echo=FALSE, comment=NA)
+library(XLConnect)
+library(dplyr)
+library(ggplot2)
+library(scales)
+library(ggthemes)
+```
+
+```{r}
+wb <- loadWorkbook("revenue.xlsx", create=FALSE)
+df <- readWorksheet(wb, sheet=1)
+```
+
+
+2014년 `r first(df$month)`월부터 `r last(df$month)`월까지 매출은 다음과 같다.
+
+```{r results='asis'}
+kable(df, digits=0, format='pandoc')
+```
+
+월 평균 `r format(mean(df$revenue), big.mark=",")`원의 매출이 있었다.
+
+```{r fig.width=7, fig.height=4}
+df$month <- as.factor(df$month)
+p <- ggplot(df, aes(month, revenue, group=1))+geom_point()+geom_line()
+p <-p+scale_y_continuous(labels=comma)
+p <- p+ theme_economist()
+p
+```
+
+
+

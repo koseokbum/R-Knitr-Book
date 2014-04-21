@@ -1,0 +1,101 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css'>
+    
+    <script src='http://code.jquery.com/jquery-1.10.2.min.js' type='text/javascript'></script>
+    <script src='http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body>
+    <table id='chartcff547a2bb53' class='rChart datatables'></table>  
+    
+    <script type="text/javascript" charset="utf-8">
+  var chartParamschartcff547a2bb53 = {
+ "dom": "chartcff547a2bb53",
+"width":    800,
+"height":    400,
+"table": {
+ "aaData": [
+ [
+      1,
+7.5e+07 
+],
+[
+      2,
+7.2e+07 
+],
+[
+      3,
+8.1e+07 
+],
+[
+      4,
+8.3e+07 
+],
+[
+      5,
+8.35e+07 
+],
+[
+      6,
+8.6e+07 
+],
+[
+      7,
+8.7e+07 
+],
+[
+      8,
+8.8e+07 
+],
+[
+      9,
+8.6e+07 
+] 
+],
+"aoColumns": [
+ {
+ "sTitle": "month" 
+},
+{
+ "sTitle": "revenue" 
+} 
+] 
+},
+"id": "chartcff547a2bb53" 
+}
+  $('#' + chartParamschartcff547a2bb53.id).removeClass("rChart")
+
+  $(document).ready(function() {
+		drawDataTable(chartParamschartcff547a2bb53)
+	});
+  function drawDataTable(chartParams){
+    var dTable = $('#' + chartParams.dom).dataTable(
+      chartParams.table
+    );
+    //first use rCharts width
+  	$('#'+chartParams.id+"_wrapper").css("width",chartParams.width)  
+		$('#'+chartParams.id+"_wrapper").css("width",chartParams.table.width)
+    
+    //then if specified change to table width
+    $('#'+chartParams.id+"_wrapper").css("margin-left", "auto");
+    $('#'+chartParams.id+"_wrapper").css("margin-right", "auto");
+		dTable.fnAdjustColumnSizing();
+  }
+		
+</script>
+    
+  </body>
+</html>
