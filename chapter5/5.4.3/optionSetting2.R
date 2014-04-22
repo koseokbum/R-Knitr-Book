@@ -1,3 +1,4 @@
+library(knitrBootstrap)
 options(rstudio.markdownToHTML =
           function(inputFile, outputFile) {
             require(knitrBootstrap)

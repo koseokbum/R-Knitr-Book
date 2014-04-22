@@ -105,7 +105,7 @@ $(function() {
   document.title = $('h1').first().text();
 
   /* size of thumbnails */
-  var thumbsize = "col-md-6";
+  var thumbsize = "col-md-3";
 
   var show_code =  false ;
 
@@ -934,128 +934,7 @@ img.mfp-img {
 }
 
 </style>
-<link href=https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css rel="stylesheet" id='style'>
-<link rel="alternate stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" title="Default" media="screen">
-<link rel="alternate stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/amelia/bootstrap.min.css" title="Amelia" media="screen">
-<link rel="alternate stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/cerulean/bootstrap.min.css" title="Cerulean" media="screen">
-<link rel="alternate stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/cosmo/bootstrap.min.css" title="Cosmo" media="screen">
-<link rel="alternate stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/cyborg/bootstrap.min.css" title="Cyborg" media="screen">
-<link rel="alternate stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css" title="Flatly" media="screen">
-<link rel="alternate stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/journal/bootstrap.min.css" title="Journal" media="screen">
-<link rel="alternate stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css" title="Readable" media="screen">
-<link rel="alternate stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/simplex/bootstrap.min.css" title="Simplex" media="screen">
-<link rel="alternate stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/slate/bootstrap.min.css" title="Slate" media="screen">
-<link rel="alternate stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/spacelab/bootstrap.min.css" title="Spacelab" media="screen">
-<link rel="alternate stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/united/bootstrap.min.css" title="United" media="screen">
 
-          <!--<li><a class="style-switch" title="Superhero" href="#" >Superhero</a>  </li> \-->
-          <!--<li><a class="style-switch" title="Spruce" href="#"    >Spruce</a>     </li> \-->
-<script>
-$(function() {
-    $('#bottom-navbar').append(
-    '<ul class="nav navbar-nav navbar-left">\
-      <li class="dropup">\
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bootstrap Style</a>\
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">\
-           <li class="active"><a class="style-switch" title="Default" href="#"   >Default</a></li> \
-           <li><a class="style-switch" title="Amelia" href="#"                   >Amelia</a></li> \
-           <li><a class="style-switch" title="Cerulean" href="#"                 >Cerulean</a></li> \
-           <li><a class="style-switch" title="Cosmo" href="#"                    >Cosmo</a></li> \
-           <li><a class="style-switch" title="Cyborg" href="#"                   >Cyborg</a></li> \
-           <li><a class="style-switch" title="Flatly" href="#"                   >Flatly</a></li> \
-           <li><a class="style-switch" title="Journal" href="#"                  >Journal</a></li> \
-           <li><a class="style-switch" title="Readable" href="#"                 >Readable</a></li> \
-           <li><a class="style-switch" title="Simplex" href="#"                  >Simplex</a></li> \
-           <li><a class="style-switch" title="Slate" href="#"                    >Slate</a></li> \
-           <li><a class="style-switch" title="Spacelab" href="#"                 >Spacelab</a></li> \
-           <li><a class="style-switch" title="United" href="#"                   >United</a></li> \
-        </ul>\
-      </li>\
-    </ul>');
-    $('.style-switch').click(function(){
-      var css = $('link[title=' + $(this).attr('title') + ']');
-      $('#style[rel=stylesheet]').attr('href', css.attr('href'));
-      $('.style-switch').closest('li').removeClass('active');
-      $(this).closest('li').addClass('active');
-      return false;
-    });
-  }
-);
-</script>
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/default.min.css" id="code-style" rel="stylesheet">
-<link title="Default-Code" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/default.min.css" rel="alternate stylesheet">
-<link title="Dark" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/dark.min.css" rel="alternate stylesheet">
-<link title="FAR" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/far.min.css" rel="alternate stylesheet">
-<link title="IDEA" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/idea.min.css" rel="alternate stylesheet">
-<link title="Sunburst" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/sunburst.min.css" rel="alternate stylesheet">
-<link title="Zenburn" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/zenburn.min.css" rel="alternate stylesheet">
-<link title="Visual Studio" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/vs.min.css" rel="alternate stylesheet">
-<link title="Ascetic" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/ascetic.min.css" rel="alternate stylesheet">
-<link title="Magula" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/magula.min.css" rel="alternate stylesheet">
-<link title="GitHub" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/github.min.css" rel="alternate stylesheet">
-<link title="Google Code" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/googlecode.min.css" rel="alternate stylesheet">
-<link title="Brown Paper" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/brown_paper.min.css" rel="alternate stylesheet">
-<link title="School Book" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/school_book.min.css" rel="alternate stylesheet">
-<link title="IR Black" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/ir_black.min.css" rel="alternate stylesheet">
-<link title="Solarized - Dark" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/solarized_dark.min.css" rel="alternate stylesheet">
-<link title="Solarized - Light" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/solarized_light.min.css" rel="alternate stylesheet">
-<link title="Arta" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/arta.min.css" rel="alternate stylesheet">
-<link title="Monokai" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/monokai.min.css" rel="alternate stylesheet">
-<link title="XCode" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/xcode.min.css" rel="alternate stylesheet">
-<link title="Pojoaque" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/pojoaque.min.css" rel="alternate stylesheet">
-<link title="Rainbow" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/rainbow.min.css" rel="alternate stylesheet">
-<link title="Tomorrow" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/tomorrow.min.css" rel="alternate stylesheet">
-<link title="Tomorrow Night" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/tomorrow-night.min.css" rel="alternate stylesheet">
-<link title="Tomorrow Night Bright" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/tomorrow-night-bright.min.css" rel="alternate stylesheet">
-<link title="Tomorrow Night Blue" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/tomorrow-night-blue.min.css" rel="alternate stylesheet">
-<link title="Tomorrow Night Eighties" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/tomorrow-night-eighties.min.css" rel="alternate stylesheet">
-
-<script>
-$(function() {
-    $('#bottom-navbar').append(
-    '<ul class="nav navbar-nav">\
-      <li class="dropdown">\
-        <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">Code Style</a>\
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">\
-          <li class="active"><a class="code-style-switch" title="Default-Code" href="#">Default</a></li>\
-          <li><a class="code-style-switch" title="Dark" href="#"                       >Dark</a></li>\
-          <li><a class="code-style-switch" title="FAR" href="#"                        >FAR</a></li>\
-          <li><a class="code-style-switch" title="IDEA" href="#"                       >IDEA</a></li>\
-          <li><a class="code-style-switch" title="Sunburst" href="#"                   >Sunburst</a></li>\
-          <li><a class="code-style-switch" title="Zenburn" href="#"                    >Zenburn</a></li>\
-          <li><a class="code-style-switch" title="Visual Studio" href="#"              >Visual Studio</a></li>\
-          <li><a class="code-style-switch" title="Ascetic" href="#"                    >Ascetic</a></li>\
-          <li><a class="code-style-switch" title="Magula" href="#"                     >Magula</a></li>\
-          <li><a class="code-style-switch" title="GitHub" href="#"                     >GitHub</a></li>\
-          <li><a class="code-style-switch" title="Google Code" href="#"                >Google Code</a></li>\
-          <li><a class="code-style-switch" title="Brown Paper" href="#"                >Brown Paper</a></li>\
-          <li><a class="code-style-switch" title="School Book" href="#"                >School Book</a></li>\
-          <li><a class="code-style-switch" title="IR Black" href="#"                   >IR Black</a></li>\
-          <li><a class="code-style-switch" title="Solarized - Dark" href="#"           >Solarized - Dark</a></li>\
-          <li><a class="code-style-switch" title="Solarized - Light" href="#"          >Solarized - Light</a></li>\
-          <li><a class="code-style-switch" title="Arta" href="#"                       >Arta</a></li>\
-          <li><a class="code-style-switch" title="Monokai" href="#"                    >Monokai</a></li>\
-          <li><a class="code-style-switch" title="XCode" href="#"                      >XCode</a></li>\
-          <li><a class="code-style-switch" title="Pojoaque" href="#"                   >Pojoaque</a></li>\
-          <li><a class="code-style-switch" title="Rainbow" href="#"                    >Rainbow</a></li>\
-          <li><a class="code-style-switch" title="Tomorrow" href="#"                   >Tomorrow</a></li>\
-          <li><a class="code-style-switch" title="Tomorrow Night" href="#"             >Tomorrow Night</a></li>\
-          <li><a class="code-style-switch" title="Tomorrow Night Bright" href="#"      >Tomorrow Night Bright</a></li>\
-          <li><a class="code-style-switch" title="Tomorrow Night Blue" href="#"        >Tomorrow Night Blue</a></li>\
-          <li><a class="code-style-switch" title="Tomorrow Night Eighties" href="#"    >Tomorrow Night Eighties</a></li>\
-        </ul>\
-      </li>\
-    </ul>');
-    $('.code-style-switch').click(function(){
-      var css = $('link[title="' + $(this).attr('title') + '"]');
-      $('#code-style[rel=stylesheet]').attr('href', css.attr('href'));
-      $('.code-style-switch').closest('li').removeClass('active');
-      $(this).closest('li').addClass('active');
-      return false;
-    });
-});
-</script>
  
 
 </head>
