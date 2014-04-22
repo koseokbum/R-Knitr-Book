@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>월간 매출 보고서</title>
+    <link rel="stylesheet" href="libraries/frameworks/minimal/stylesheets/styles.css">
+    <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        <link rel=stylesheet href="libraries/widgets/morris/css/morris.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+    <script src="libraries/widgets/morris/js/jquery-1.8.2.min.js"></script>
+<script src="libraries/widgets/morris/js/raphael-2.1.0.min.js"></script>
+<script src="libraries/widgets/morris/js/morris.min.js"></script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+<header>
+  <h1>월간 매출 보고서</h1>
+  <p></p>
+    <ol>
+    </ol>
+</header>
+
+      <section>
+        
+<p>2014년 1월부터 6월까지 매출은 다음과 같다.</p>
+
+<table><thead>
+<tr>
+<th align="right">month</th>
+<th align="right">revenue</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="right">1</td>
+<td align="right">75000000</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">72000000</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">81000000</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">83000000</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td align="right">83500000</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td align="right">86000000</td>
+</tr>
+</tbody></table>
+
+<p>월 평균 80,083,333원의 매출이 있었다.</p>
+
+<div id = 'chart2' class = 'rChart morris'></div>
+
+<script type='text/javascript'>
+    var chartParams = {
+ "element": "chart2",
+"width":            800,
+"height":            400,
+"xkey": "month",
+"ykeys": [
+ "revenue" 
+],
+"data": [
+ {
+ "month":              1,
+"revenue":       75000000 
+},
+{
+ "month":              2,
+"revenue":       72000000 
+},
+{
+ "month":              3,
+"revenue":       81000000 
+},
+{
+ "month":              4,
+"revenue":       83000000 
+},
+{
+ "month":              5,
+"revenue":       83500000 
+},
+{
+ "month":              6,
+"revenue":       86000000 
+} 
+],
+"id": "chart2",
+"labels": "revenue" 
+},
+      chartType = "Bar"
+    new Morris[chartType](chartParams)
+</script>
+
+      </section>
+      <footer>
+        <p>Maintained by <a href="http://github.com/">
+          SBKo
+        </a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by 
+          <a href="https://github.com/orderedlist">orderedlist</a></small>
+        </p>
+      </footer>    </div>
+    <script src="libraries/frameworks/minimal/javascripts/scale.fix.js"></script>
+  </body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

@@ -1,0 +1,44 @@
+---
+title       : 월간 매출 보고서
+subtitle    : 
+author      : SBKo
+job         : 
+framework   : minimal       # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+ext_widgets : {rCharts: "libraries/morris"}
+mode        : selfcontained # {standalone, draft}
+---
+
+
+```{r echo=FALSE, message=FALSE}
+library(knitr)
+opts_chunk$set(echo=FALSE, comment=NA, results='asis', message=FALSE)
+library(XLConnect)
+library(dplyr)
+library(rCharts)
+```
+
+```{r}
+wb <- loadWorkbook("revenue.xlsx", create=FALSE)
+df <- readWorksheet(wb, sheet=1)
+```
+
+
+2014년 `r first(df$month)`월부터 `r last(df$month)`월까지 매출은 다음과 같다.
+
+```{r results='asis'}
+kable(df, digits=0)
+```
+
+월 평균 `r format(mean(df$revenue), big.mark=",")`원의 매출이 있었다.
+
+
+```{r}
+m1 <- mPlot(x = "month", y = c("revenue"), type = "Bar", data = df)
+
+m1$print("chart2")
+```
+
+
