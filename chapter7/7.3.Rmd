@@ -1,0 +1,215 @@
+<!--7.3 그래프의 생성과 저장을 조절하는 옵션-->
+
+### 7.3.1 저장소의 지정 ###
+
+- 드퐅트는 `fig.path='figure/`로 설정되어 있음
+- 문서를 컴파일하고 나서 현재 폴더의 figure 디렉터리가 있는 지를 확인하고, 이름이 어떻게 부여되는 지 확인하는 것이 좋다. 
+
+
+```{r}
+hist(rnorm(1000))
+```
+
+### 7.3.2 그래픽 디바이스 설정 ###
+
+- 그래픽 디바이이스는 `dev=` 옵션을 사용한다. 
+- 이 파일과 같이 .Rmd인 경우에는 png가 사용된다. LaTeX인 경우에는 pdf가 사용된다.
+- 앞서 설명한 figure 폴더에 보면 그래프 확장자가 .png 임을 확인한다.
+
+
+### 7.3.3 그래프의 크기 조절 ###
+
+- 그래프의 크기는 디퐅트로 7(인치)로 설정되어 있다. 바로 전의 코드 청크가 만는 결과를 확인하면 된다.
+- 그래픽 디바이스를 기준으로 정할 수도 있고, 출력물을 기준으로 정할 수 있다.
+
+### 7.3.4 그래픽 디바이스를 기준으로 크기 결정 ###
+
+- 그래픽 디바이스를 기준으로 할 때는 `fig.width=`, `fig.height=` 옵션을 사용한다. 인치 단위의 숫자를 주면 된다.
+
+```{r  fig.width=6, fig.height=3}
+library(ggplot2)
+data(iris)
+ggplot(iris, aes(Sepal.Length, Sepal.Width, col=Species))+geom_point() 
+```
+
+### 7.3.5 출력물을 기준으로 그래프 크기 결정 ###
+
+- 출력물을 기준으로 할 때는 `out.width=`, `out.height=` 옵션을 사용하는데 단위를 붙힌 문자열로 지정한다. 
+
+```{r withiris, out.width='500px', out.height='500px'}
+p<-ggplot(iris, aes(Sepal.Length, Sepal.Width, col=Species))
+p+geom_point()
+```
+
+### 7.3.6 한 코드 청크에서 여러 그래프를 저장하는 방법 ###
+
+- 디폴트는 `fig.keep='high'`이다. 여기서 말하는 `high`라는 단어는 R 그래픽 시스템에서 고수준 함수(high-level function)에서 나온 것이다.
+
+- 아래의 코드 청크에서 고수준 함수는 `hist()`와 `plot()`이기 때문에 이들 함수를 기준으로 그래프가 생성된다.
+
+- 책에 옵션 값들이 대문자로 시작되는 것은 오류이다. 소문자가 맞다. (죄송합니다.)
+- RStudio에서 코드 청크 옵션을 넣을 때 등호까지 입력하면 자동으로 선택가능한 값들을 보여주는 기능이 있어서 무척 편리하다. 
+
+```{r }
+par(mfrow=c(2,1))
+set.seed(7)
+random <- rnorm(1000)
+hist(random, prob=TRUE)
+lines(density(random), col='red')
+
+plot(mpg~wt, data=mtcars)
+abline(lm(mpg~wt, data=mtcars), col='red')
+```
+
+
+- 만약 `fig.keep='all'`로 주면 고수준, 저수준 함수의 효과가 모든 반영되어 그래프가 생성되는 전체 과정을 보여 준다. 코드 청크가 출력되는 것도 거기에 맞춰진다.
+
+
+```{r fig.keep='all'}
+par(mfrow=c(1,1))
+set.seed(7)
+random <- rnorm(1000)
+hist(random, prob=TRUE)
+lines(density(random), col='red')
+
+plot(mpg~wt, data=mtcars)
+abline(lm(mpg~wt, data=mtcars), col='red')
+```
+
+### 7.3.7 복수의 그래프에 다른 옵션 값 설정 ###
+
+- 하나의 코드청크가 여러 개의 그래프를 만들고, 각각의 크기를 별도로 정하고 싶으면 이를 벡터로 주면 된다. 
+- 아래의 코드 청크는 앞에서 설명한 `fig.keep='all'`이라는 옵션을 사용하기 때문에 모두 3개의 그래프가 만들어 진다. 이들의 폭을  200px, 300px, 400px로 크기를 정했다. 
+
+```{r  fig.keep='all', echo=FALSE, out.width=c('200px', '300px', '400px')}
+set.seed(5)
+a <- rnorm(1000)
+hist(a, prob=T, main='')
+lines(density(a), col='orange2', lwd=2)
+title(main='Histogram and density')
+```
+
+- 출력되는 그래프의 개수와 벡터가 1 대 1로 대응되지 않는 경우에는, 벡터의 재활용이 일어난다.
+- 아래 코드 청크의 경우 모두 3개의 그래프가 만들어지며, 처음 그래프는 폭이 200px,  두 번째는 300px, 세 번째는 다시 200px로 그려진다. 
+
+```{r fig.keep='all', echo=FALSE, out.width=c('200px', '300px')}
+set.seed(5)
+a <- rnorm(1000)
+hist(a, prob=T, main='')
+lines(density(a), col='orange2', lwd=2)
+title(main='Histogram and density')
+```
+
+### 7.4.1 좌우 정렬 ###
+
+- 그래프의 좌우 정렬은 `fig.align=` 옵션을 사용한다. 
+- 다음에 사용하는 `diamonds` 데이터셋은 ggplot2 패키지에 포함되어 있다. 
+- `fig.align='center'`로 지정해 보았다. 
+
+```{r fig.align='center'}
+ggplot(diamonds, aes(carat, price))+geom_point(col='deeppink')
+```
+
+
+### 7.4.2 코드와 그래프의 상대적 위치 ####
+
+- 말로 하는 것보다 직접 옵션을 변경해 보면 쉽게 이해된다.
+- `fig.show=`라는 옵션을 쓰는데, 디폴트 출력(`fig.show='asis')은 그래프를 출력하는 코드 다음에 바로 그래프가 나온다. 청크의 코드는  앞에서도  사용한 적이 있는 코드이다. 
+
+
+```{r fig.keep='all'}
+par(mfrow=c(1,1))
+set.seed(7)
+random <- rnorm(1000)
+hist(random, prob=TRUE)
+lines(density(random), col='red')
+
+plot(mpg~wt, data=mtcars)
+abline(lm(mpg~wt, data=mtcars), col='red')
+```
+
+- 만약, 이것은 'fig.show='hold'`로 바꾸면 아래와 같이 코드 청크가 모두 출력되고 나서, 그래프는 붙잡고 있다가 한꺼번에 출력된다.
+
+```{r fig.keep='all', fig.show='hold'}
+par(mfrow=c(1,1))
+set.seed(7)
+random <- rnorm(1000)
+hist(random, prob=TRUE)
+lines(density(random), col='red')
+
+plot(mpg~wt, data=mtcars)
+abline(lm(mpg~wt, data=mtcars), col='red')
+```
+
+### 7.4.3 복수의 그래프 레이아웃 설정 ###
+
+- 아래의 코드청크는 모두 4개의 그래프를 출력한다. 
+- 디폴트 레이아웃은 좌우 폭이 여유가 있으면 자동적으로 맞춰진다.
+- 이 코드 청크와 같이 전통적인 R 그래픽 시스템으로 만들어 지는 그래프(hist() 함수 사용)과 그리드 그래픽스로 만들어지는 그래프를 배치할 때는 이 디폴트 방법이 매우 유용하다.
+- 책에서 설명한 것과 같이 전통적인 그래픽 시스템과 그리드 시스템을 하나의 그래칙 창에 혼용할 수 없다. 물론 gridBase 같은 패키지를 이용하면 가능하다. 
+
+
+```{r fig.show='hold', out.width="24%"}
+set.seed(2)
+library(ggplot2)
+a <- rnorm(1000, mean=58, sd=4)
+hist(a)
+df <-data.frame(a)
+p <-ggplot(df, aes(a))+geom_histogram(binwidth=1,
+                          fill='white', color='black',
+                          aes(y=..density..))
+p
+p <-p + geom_density(fill="red", alpha=0.1, col='red' )
+p
+p <-p + geom_vline(aes(xintercept=mean(a)),
+                   col='red', linetype='dashed')
+p
+```
+
+### 7.4.4 gridExtra 패키지를 이용한 그리프 그래프 레이아웃 설정 ###
+
+- 다수의 그리드 그래픽을 출력하는 경우 `gridExtra` 패키지를 사용하면 원하는 형태로 그래프를 배치할 수 있다. 
+- 아래 코드 청크에서 `HSAUR2` 패키지는 `water`라는 데이터셋을 사용하기 위해서 로딩하였다. 
+
+```{r fig.show='hold', message=FALSE}
+library(HSAUR2)
+library(grid)
+library(ggplot2)
+library(gridExtra)
+p1 <- ggplot(water, aes(hardness, mortality)) + stat_smooth(method='lm')
+p1 <- p1 + geom_point(aes(col=location))+scale_x_continuous(limits=c(0,150))+ theme(legend.position=c(0.85, 0.8))
+p2 <- ggplot(water, aes(hardness))+geom_histogram(binwidth=20, fill="darkgray")+scale_x_continuous(limits=c(0,150))
+p3 <- grid.rect(gp=gpar(col="white"))
+p4 <- ggplot(water, aes(location,mortality))+geom_boxplot() + theme(axis.title.y=element_blank())
+grid.arrange(p2, p3, p1, p4, ncol=2)
+```
+
+### 7.5 캡션과 레이블
+
+
+
+```{r fig.cap="난수 히스토그램", fig.width=5, fig.height=4}
+hist(rnorm(1000))
+```
+
+
+- 현재 파일(`7.3.Rmd`) 파일을 컴파일하면 `7.3.md` 파일이 만들어진다. 이 부분에 해당되는부분을 보면 아래와 같은 코드를 볼 수 있다.
+
+```
+![난수 히스토그램](figure/unnamed-chunk-12.png) 
+
+```
+
+- 즉, `fig.cap`이라고 옵션으로 준 것은 마크다운은 링크텍스트로 사용되는 것을 볼 수 있다.
+- 이것이 최종 `7.3.html`을 브라우저로 열었을 때 보이지 않는 이유는이 부분이 img 태그의 alt 특성 값으로 들어가기 때문이다. 이 alt 특성은 브라우저에서 그림을 보여줄 수 없을 때 대신 보여주는 텍스트 역할을 하도록 되어 있다. 
+
+
+### 그래프에 한글 삽입 ###
+
+```{r}
+a<-rnorm(1000)
+hist(a, main="히스토그램")
+```
+
+
+
