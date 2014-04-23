@@ -1,10 +1,29 @@
+```{r echo = FALSE}
+require(knitr)
+hook_source_def = knit_hooks$get('source')
+knit_hooks$set(source = function(x, options){
+  if (!is.null(options$verbatim) && options$verbatim){
+    opts = gsub(",\\s*verbatim\\s*=\\s*TRUE\\s*", "", options$params.src)
+    bef = sprintf('\n\n    ```{r %s}\n', opts, "\n")
+    stringr::str_c(bef, paste(knitr:::indent_block(x, "    "), collapse = '\n'), "\n    ```\n")
+  } else {
+     hook_source_def(x, options)
+  }
+})
+opts_chunk$set(verbatim=TRUE)
+```
+
+<!-- 위 후크는 청크 옵션을 출력하기 위한 것이다. 후크의 사용은책의 6장8절을 보면 된다-->
+<!-- 위 코드는 http://stackoverflow.com/questions/19908158/show-an-r-markdown-chunk-in-the-final-output 에서 인용했다. 한 가지 문제는 저자의 경우  청크 앞에 한글이 있는 경우에 잘 작동하지 않았다. 그래서 의미없는 <div></div>를 넣었다. -->
+
 <!--7.3 그래프의 생성과 저장을 조절하는 옵션-->
 
 ### 7.3.1 저장소의 지정 ###
 
-- 드퐅트는 `fig.path='figure/`로 설정되어 있음
+- 드퐅트는 `fig.path='figure/'`로 설정되어 있음
 - 문서를 컴파일하고 나서 현재 폴더의 figure 디렉터리가 있는 지를 확인하고, 이름이 어떻게 부여되는 지 확인하는 것이 좋다. 
 
+<div></div>
 
 ```{r}
 hist(rnorm(1000))
@@ -26,6 +45,8 @@ hist(rnorm(1000))
 
 - 그래픽 디바이스를 기준으로 할 때는 `fig.width=`, `fig.height=` 옵션을 사용한다. 인치 단위의 숫자를 주면 된다.
 
+<div></div>
+
 ```{r  fig.width=6, fig.height=3}
 library(ggplot2)
 data(iris)
@@ -35,6 +56,8 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, col=Species))+geom_point()
 ### 7.3.5 출력물을 기준으로 그래프 크기 결정 ###
 
 - 출력물을 기준으로 할 때는 `out.width=`, `out.height=` 옵션을 사용하는데 단위를 붙힌 문자열로 지정한다. 
+
+<div></div>
 
 ```{r withiris, out.width='500px', out.height='500px'}
 p<-ggplot(iris, aes(Sepal.Length, Sepal.Width, col=Species))
@@ -50,6 +73,8 @@ p+geom_point()
 - 책에 옵션 값들이 대문자로 시작되는 것은 오류이다. 소문자가 맞다. (죄송합니다.)
 - RStudio에서 코드 청크 옵션을 넣을 때 등호까지 입력하면 자동으로 선택가능한 값들을 보여주는 기능이 있어서 무척 편리하다. 
 
+<div></div>
+
 ```{r }
 par(mfrow=c(2,1))
 set.seed(7)
@@ -64,6 +89,7 @@ abline(lm(mpg~wt, data=mtcars), col='red')
 
 - 만약 `fig.keep='all'`로 주면 고수준, 저수준 함수의 효과가 모든 반영되어 그래프가 생성되는 전체 과정을 보여 준다. 코드 청크가 출력되는 것도 거기에 맞춰진다.
 
+<div></div>
 
 ```{r fig.keep='all'}
 par(mfrow=c(1,1))
@@ -81,6 +107,8 @@ abline(lm(mpg~wt, data=mtcars), col='red')
 - 하나의 코드청크가 여러 개의 그래프를 만들고, 각각의 크기를 별도로 정하고 싶으면 이를 벡터로 주면 된다. 
 - 아래의 코드 청크는 앞에서 설명한 `fig.keep='all'`이라는 옵션을 사용하기 때문에 모두 3개의 그래프가 만들어 진다. 이들의 폭을  200px, 300px, 400px로 크기를 정했다. 
 
+<div></div>
+
 ```{r  fig.keep='all', echo=FALSE, out.width=c('200px', '300px', '400px')}
 set.seed(5)
 a <- rnorm(1000)
@@ -91,6 +119,8 @@ title(main='Histogram and density')
 
 - 출력되는 그래프의 개수와 벡터가 1 대 1로 대응되지 않는 경우에는, 벡터의 재활용이 일어난다.
 - 아래 코드 청크의 경우 모두 3개의 그래프가 만들어지며, 처음 그래프는 폭이 200px,  두 번째는 300px, 세 번째는 다시 200px로 그려진다. 
+
+<div></div>
 
 ```{r fig.keep='all', echo=FALSE, out.width=c('200px', '300px')}
 set.seed(5)
@@ -106,6 +136,8 @@ title(main='Histogram and density')
 - 다음에 사용하는 `diamonds` 데이터셋은 ggplot2 패키지에 포함되어 있다. 
 - `fig.align='center'`로 지정해 보았다. 
 
+<div></div>
+
 ```{r fig.align='center'}
 ggplot(diamonds, aes(carat, price))+geom_point(col='deeppink')
 ```
@@ -116,6 +148,7 @@ ggplot(diamonds, aes(carat, price))+geom_point(col='deeppink')
 - 말로 하는 것보다 직접 옵션을 변경해 보면 쉽게 이해된다.
 - `fig.show=`라는 옵션을 쓰는데, 디폴트 출력(`fig.show='asis')은 그래프를 출력하는 코드 다음에 바로 그래프가 나온다. 청크의 코드는  앞에서도  사용한 적이 있는 코드이다. 
 
+<div></div>
 
 ```{r fig.keep='all'}
 par(mfrow=c(1,1))
@@ -129,6 +162,8 @@ abline(lm(mpg~wt, data=mtcars), col='red')
 ```
 
 - 만약, 이것은 'fig.show='hold'`로 바꾸면 아래와 같이 코드 청크가 모두 출력되고 나서, 그래프는 붙잡고 있다가 한꺼번에 출력된다.
+
+<div></div>
 
 ```{r fig.keep='all', fig.show='hold'}
 par(mfrow=c(1,1))
@@ -148,6 +183,7 @@ abline(lm(mpg~wt, data=mtcars), col='red')
 - 이 코드 청크와 같이 전통적인 R 그래픽 시스템으로 만들어 지는 그래프(hist() 함수 사용)과 그리드 그래픽스로 만들어지는 그래프를 배치할 때는 이 디폴트 방법이 매우 유용하다.
 - 책에서 설명한 것과 같이 전통적인 그래픽 시스템과 그리드 시스템을 하나의 그래칙 창에 혼용할 수 없다. 물론 gridBase 같은 패키지를 이용하면 가능하다. 
 
+<div></div>
 
 ```{r fig.show='hold', out.width="24%"}
 set.seed(2)
@@ -171,6 +207,8 @@ p
 - 다수의 그리드 그래픽을 출력하는 경우 `gridExtra` 패키지를 사용하면 원하는 형태로 그래프를 배치할 수 있다. 
 - 아래 코드 청크에서 `HSAUR2` 패키지는 `water`라는 데이터셋을 사용하기 위해서 로딩하였다. 
 
+<div></div>
+
 ```{r fig.show='hold', message=FALSE}
 library(HSAUR2)
 library(grid)
@@ -187,6 +225,7 @@ grid.arrange(p2, p3, p1, p4, ncol=2)
 ### 7.5 캡션과 레이블
 
 
+<div></div>
 
 ```{r fig.cap="난수 히스토그램", fig.width=5, fig.height=4}
 hist(rnorm(1000))
@@ -206,10 +245,58 @@ hist(rnorm(1000))
 
 ### 그래프에 한글 삽입 ###
 
-```{r}
-a<-rnorm(1000)
-hist(a, main="히스토그램")
+- 그래프에 한글을 효율적으로 사용하기 위해서는 `extrafont` 패키지를 권장한다.
+- 패키지 설정은 다음과 같이 한다. 
+
+<div></div>
+
+```{r eval=FALSE}
+ install.packages(c("extrafont", "extrafontdb", "Rttf2pt1"))
 ```
+
+- 패키지를 로딩하고 시스템에 있는 폰트를 읽어 들인다 폰트를 읽어 오는 데는 시간이 걸린다.
+- 이렇게 읽어들인 폰트는 폰트 데이터베이스에 저장되어 처음에는 이 과정이 필요하지만, 나중에는 `extrafont` 패키지만 로딩하면 된다. 처음만 시간이 걸린다.
+
+<div></div>
+
+```{r eval=FALSE}
+library(extrafont) 
+font_import()
+```
+
+- `extrafont` 패키지 로딩하고 어떤 폰트가 가능한 지는 다음 함수로 알 수 있다.
+
+<div></div>
+
+```{r eval=FALSE}
+fonts()
+```
+
+- `extrafont`를 사용할 때 많은 경고문들이 나오는 데, 이것은 아래와 같이 `warning=FALSE`라는 옵션으로 출력되지 않게 한다. 
+
+- 현재의 컴퓨터에 `나눔고딕`체가 들어 있어서 이것을 사용한다. 
+- 컴퓨터마다 설치되어 있는 폰트가 다를 수 있어서 아래 코드 청크는 처음 컴파일할 때 오류가 일어나지 않도록 `eval=FALSE` 옵션을 주었다. 
+
+- 실제 효과를 확인하기 위해서는 이 옵션을 지우고, 자신의 컴퓨터에서 사용가능한 폰트이름을 주어야 한다. 
+
+<div></div>
+
+```{r warning=FALSE, eval=FALSE}
+a<-rnorm(1000)
+hist(a, main="히스토그램", family='나눔고딕')
+```
+
+- ggplot2 패키지에서는 폰트 등을 정할 때 `theme`을 사용한다.
+
+<div></div>
+
+```{r warning=FALSE, eval=FALSE}
+p <- ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point() 
+p <- p + ggtitle("한글 제목")
+p <- p + theme(text=element_text(family="나눔명조"))
+p
+```
+
 
 
 
