@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>워드에서 읽을 수 있는 파일로 바꾸기</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h2>워드에서 읽을 수 있는 파일로 바꾸기</h2>
+
+<p>이 책에서 소개하는 R과 R markdown을 혼용하여 사용하는 경우 다음 과정을 거쳐 문서가 완성된다.</p>
+
+<ol>
+<li>1차 컴파일: R 코드청크가 실행되는 것으로, .Rmd 파일이 .md 파일로 변환된다.</li>
+<li>2차 컴파일: 마크다운 마크업이 HTML 마크업으로 변환되며, .md 파일이 .html로 변환된다.</li>
+</ol>
+
+<p>여기서 원 파일인 .Rmd 파일과 중간 파일인 .md 파일을 활용하여 필요한 경우  다른 포맷의 문서로 쉽게 바꿀 수 있다. 이 경우 큰 도움이 되는 도구가 <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>이다. 사이트를 보면 윈도우즈, 맥 등 시스템에 맞게 설치할 수 있는 링크가 있다. 이것을 컴퓨터에 설치한다. </p>
+
+<p>이렇게 pandoc가 설치되었다면 knitr 패키지에서 <code>pandoc()</code> 함수를 사용할 수 있게 된다. 물론 pandoc 자체를 사용할 수도 있다. 하지만 pandoc이 커맨드라인툴이고 옵션 등이 많아서 익히기가 쉽지 않은데, knitr 패키지의 <code>pandoc()</code> 함수를 사용하면 이 기능을 그대로 끌고 와서 사용할 수 있다. </p>
+
+<p>현재 이 파일(chapter9ToWord.Rmd)이 RStudio의 워킹디렉터리에서 읽었다고 가정한다. 먼저 R 콘솔에서 니터 패키지를 로딩한다. </p>
+
+<pre><code class="r">library(knitr)
+</code></pre>
+
+<p>knitr 패키지의 도움말을 확인한다. </p>
+
+<pre><code class="r">help(pandoc)
+</code></pre>
+
+<p>도움말을 보면 <code>format</code>이라는 옵션이 있는데, 여기에 출력할 파일의 포맷의 확장자를 적어준다. 예를 들어 워드에서 읽을 수 있게 하기 위해서는 <code>format=&#39;docx&#39;</code>라고 한다. </p>
+
+<pre><code class="r">pandoc(&quot;chapter9ToWord.md&quot;, format = &quot;docx&quot;)
+</code></pre>
+
+<p>니터 패키지의 <code>pandoc()</code> 함수의 경우 원래의 .Rmd 파일로 명령을 줄 수 있으나, 그래프나 표 등을 제대로 전환하기 위해서는 중간 단계의 .md 파일을 사용하는 것이 좋다. 워낙에 pandoc이라는 도구 자체가 마크다운 포맷을 기본으로 사용하기 때문이다. </p>
+
+<p>니터 패키지를 사용하지 않고, 직접 pandoc을 사용하는 경우라면 커맨드라인에서 작업해야 한다.  아래에서 <code>-o</code> 플래그는 출력을 의미한다. </p>
+
+<pre><code>$pandoc chapter9ToWord.md -o myDocx.docx
+</code></pre>
+
+<h3>그래프 처리</h3>
+
+<p>문서가 제대로 변환된다고 생각한다면 표와 그림도 넣어 보자. </p>
+
+<pre><code class="r">hist(rnorm(1000))
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-4"/> </p>
+
+<p>이전에는 코드 청크 옵션을 넣으면 워드 파일로 변환이 잘 되지 않았는데, 개선이 된 듯하다. </p>
+
+<h3>표의 처리</h3>
+
+<p>책의 6장 5절에서 표를 만드는 방법을 설명했다. 여러 가지 방법을 시도해 보았는데, 믿을만하게 표를 정확히 워드 표로 변환하기는 쉽지 않았다. 시도는 해 보는 것은 좋다고 생각되지만 가급적인 이 부분은 직접 워드에서 작업하는 것이 좋을 듯 하다.   </p>
+
+<h3>또 다른 마크다운: 팬독 마크다운</h3>
+
+<p>이 부분은 pandoc을 주로 사용할 필요가 있는 경우나 도전적인 독자들이라면 의미는 있겠으나, 일반적인 경우 의미가 없다고 판단되어 자세한 내용은 책을 참고했으면 한다.  </p>
+
+</body>
+
+</html>
+
