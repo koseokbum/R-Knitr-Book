@@ -1,0 +1,125 @@
+### 9.1.3 XLConnect 패키지 사용 ###
+
+엑셀의 데이터를 읽고 쓰는 기능을 보완해 주는 R 패키지는 몇 개 있으나, 두 기능이 잘 지원되고 패키지 설명이 잘 되어 있어서 책에서는  `XLConnect`이라는 패키지를 소개하였다. 
+
+- 이 패키지를 사용하기 위해서는 Java Runtime Environemnt라는 도구가 시스템에 설치되어야 하는데, 대부분의 경우 이미 설치되어 있을 가능성이 높다. 설치되어 있지 않다면 http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html 사이트 등에서 시스템에 맞는 JRE를 다운로드해서 설치한다. 
+
+```{r}
+library(XLConnect)
+```
+
+- `XLConnect` 패키지는 설명이 매우 자세하게 되어 있다. 비니에트를 보기 위해서는 다음과 R 콘솔에서 실행한다.
+
+```{r eval=FALSE}
+vignette("XLConnect")
+```
+
+### 9.1.4 XLConnect 패키지에서 사용되는 개념 ###
+
+`XLConnect` 패키지는 R 언어의 `connection`이라는 개념을 이해하고 있다면 매우 쉽게 접근할 수 있다. 이 `connection`에 대한 정보를 보고자 한다면 R 콘솔에서 다음과 같이 실행한다. R 언어는 `connection`을 사용하여 파일이나 웹 페이지 등을 읽고 쓰고 한다.
+
+```{r eval=FALSE}
+help(connection)
+```
+
+`XLConnect`에서는 엑셀 파일을 `workbook`이라는 부르는 객체를 사용하여 다룬다. 보통 엑셀에서 부르는 통합문서라고 보면 된다. 보통의 하나의 통합문서는 보통 다수의 워크시트로 구성되게 된다. 
+
+그래서, 현재 폴더에 있는 `trial.xls`라는 파일에 대한 `connection`을 만들기 위해서는 `loadWorkbook()`이라는 함수를 사용한다. 만약, 현재 폴더에 없는 파일에 대한 `connection`을 만들기 위해서는 이 함수를 사용하면서 이름을 부여하고 `create=TRUE`라는 옵션을 사용한다. 
+
+```{r eveal=FALSE}
+wb1 <- loadWorkbook("trial.xls")
+wb2 <- loadWorkbook("my.xls", create=TRUE)
+```
+
+### 9.1.5 엑셀 자료 읽기 ###
+
+아무래도 엑셀의 데이터를 읽어야 하는 경우가 많아서, 먼저 엑셀 데이터를 읽는 것부터 알아보자.  먼저 `connection`을 설정한다. 
+
+```{r}
+wb1 <- loadWorkbook("trial.xls")
+```
+
+이 워크북(workbook) 객체가 어떤 워크시트를 가지고 있는지 확인하기 위해서는 `getSheets()`함수를 사용한다. 
+
+```{r}
+getSheets(wb1)
+```
+
+실제로 자료를 읽기 위해서는 `readWorksheet()`라는 함수를 사용한다. 이 함수는 워크시트 단위로 데이터를 읽는다. 따라서, 여러 워크시트가 있는 엑셀 자료라면 방문 설명한 `getWorksheets()`함수를 통해서 알아낸 워크시트를 이름을 사용하거나, 혹은 첫 워크시트를 1번이라고 가정하고 그 위치를 사용하여 읽는다. 이것을 정하는 것이  이 함수는 `sheet`라는 옵션이다. 
+
+```{r}
+df <- readWorksheet(wb1, sheet=1)
+head(df, 10)
+```
+
+위의 결과는 워크시트의 이름을 사용하는 경우 다음과 같이 옵션을 설정한다. 
+
+```{r eval=FALSE}
+df <- readWorksheet(wb1, sheet='risis')
+```
+
+위와 같이 `connection`으로 워크북 객체를 만들고, 해당 워크북에 들어있는 워크시트를 읽는 과정을 거치는 것이 일반적인데, 단순히 데이터를 읽어만 오는 경우에는 ` readWorksheetFromFile()`이라는 함수를 쓰면 워크북을 만드는 과정을 생략할 수 있다. 
+
+
+```{r}
+df2 <- readWorksheetFromFile("trial.xls", sheet=1)
+head(df2, 10)
+```
+
+### 9.1.7 R 객체를 엑셀 파일로 저장 ###
+
+R의 데이터프레임 등을 엑셀로 저장하기 위한 방법이다. 다음과 같은 과정을 거친다. 
+
+1. 먼저 작업할 대상인 워크북 connection을 만든다.
+2. 위 워크북에 워크시트를 만든다.
+3. 워크시트에 데이터를 적는다.
+4. 전에 워크북을 저장한다. 
+
+R에 기본적으로 들어있는 `mtcars`라는 데이터셋을` mtcars.xls`로 저장해 본다. 다음 코드는 이 파일이 여러 번 실행되는 경우 앞선 과정에서 생기는 파일을 제거한다. 
+
+```{r}
+if (file.exists("mtcars.xls")) file.remove('mtcars.xls')
+```
+
+먼저 작업할 워크북의 설정이다. 
+
+```{r}
+wb2 <- loadWorkbook("mtcars.xls", create=TRUE)
+```
+
+이 워크북에 `example`이라는 워크시트를 만든다. 워크시트를 만드는 함수는 `creatSheet()`이다. 
+
+```{r}
+createSheet(wb2, "example")
+```
+
+이 워크시트에 `mtcars` 데이터셋을 적는다. 기록하는 함수는 `writeWorksheet()`이다. 
+
+```{r}
+writeWorksheet(wb2, mtcars, sheet="example")
+```
+
+다음은 전체 워크시트를 저장하는 과정으 `saveWorkboot()` 함수를 사용한다.
+
+```{r}
+saveWorkbook(wb2, "mtcars.xls")
+```
+
+엑셀 데이터를 읽어들이는 과정과 마찬가지로 이런 이런 과정이 귀찮은 경우에는 `writeWorksheetToFile()`이라는 함수를 사용할 수 있다. 
+
+다음 코드는 기존의 파일을 없애기 위한 것이다. 
+
+
+```{r}
+if (file.exists("mtcars2.xls")) file.remove("mtcars2.xls")
+```
+
+
+```{r}
+writeWorksheetToFile("mtcars2.xls", mtcars, sheet="example2")
+```
+
+### 정리 ###
+
+`XLConnect`에는 여기서 설명한 간단한 기능 이외에도 엑셀과 관련된 다양한 기능들이 있다. 엑셀을 자주 사용하는 경우에는 앞서 설명한 비니에트와 매뉴얼을 상세히 읽어보면 많은 도움이 될 것이다. 
+
