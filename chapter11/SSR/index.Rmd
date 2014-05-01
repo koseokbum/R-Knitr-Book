@@ -1,0 +1,52 @@
+---
+title       : slidify with shiny
+subtitle    : 
+author      : 아무나
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [shiny, bootstrap]
+ext_widgets : {rCharts: ["libraries/uvcharts"]}
+mode        : selfcontained # {standalone, draft}
+---
+
+
+
+## ggplot2 그래픽을 사용한 shiny 앱
+
+```{r echo=FALSE, results='asis'}
+slidifyUI(
+sidebarPanel(
+selectInput("sel", "Choose the variable:",selected="wt",
+                    choices=c("cyl","wt", "hp", "disp")
+            ), 
+checkboxInput("SEadd", "Add SE?", value=FALSE)
+  ), 
+mainPanel(
+    plotOutput("plot1"),
+    verbatimTextOutput('tbl1')
+  )
+)
+```
+
+---
+
+## rCharts을 사용한 shiny 앱
+
+```{r results='asis', echo=FALSE}
+library(rCharts)
+slidifyUI(
+  sidebarPanel(
+    selectInput("sel2", "변수 선택:",selected="wt",
+                choices=c("cyl","wt", "hp", "disp"))
+  ),
+  mainPanel(
+    showOutput("chart2", "uvcharts")
+  )  
+)
+```
+
+
+
+
