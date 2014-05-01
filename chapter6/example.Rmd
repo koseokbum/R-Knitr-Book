@@ -1,5 +1,5 @@
 
-```{r }
+```{r include=FALSE}
 require(knitr)
 hook_source_def = knit_hooks$get('source')
 knit_hooks$set(source = function(x, options){
