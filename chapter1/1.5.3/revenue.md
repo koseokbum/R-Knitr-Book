@@ -71,3 +71,17 @@ date: 2014년 7월
 
 ![plot of chunk unnamed-chunk-4](revenue-figure/unnamed-chunk-4.png) 
 
+
+매출(그래프2)
+=========================================================
+
+<iframe src='
+revenue-figure/unnamed-chunk-5.html
+' scrolling='no' seamless class='rChart 
+morris
+ '
+id=iframe-
+chart153b95b58ff70
+></iframe>
+<style>iframe.rChart{ width: 100%; height: 400px;}</style>
+

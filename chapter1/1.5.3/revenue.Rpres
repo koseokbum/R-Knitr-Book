@@ -39,3 +39,13 @@ p <-p+scale_y_continuous(labels=comma)
 p <- p+ theme_economist()
 p
 ```
+
+매출(그래프2)
+=========================================================
+
+```{r results='asis'}
+library(rCharts)
+m1 <- mPlot(x = "month", y = c("revenue"), type = "Bar", data = df)
+
+m1
+```

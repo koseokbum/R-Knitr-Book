@@ -29,7 +29,7 @@ dt
 
 월 평균 `r format(mean(df$revenue), big.mark=",")`원의 매출이 있었다.
 
-```{r fig.width=7, fig.height=4}
+```{r fig.width=7, fig.height=4, fig.align='center'}
 df$month <- as.factor(df$month)
 p <- ggplot(df, aes(month, revenue, group=1))+geom_point()+geom_line()
 p <-p+scale_y_continuous(labels=comma)
