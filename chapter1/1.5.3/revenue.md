@@ -7,8 +7,6 @@ date: 2014년 7월
 
 
 
-
-
 매출(표)
 ========================================================
 
@@ -18,50 +16,49 @@ date: 2014년 7월
 <table>
  <thead>
   <tr>
-   <th> month </th>
-   <th> revenue </th>
+   <th align="right"> month </th>
+   <th align="right"> revenue </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td> 1 </td>
-   <td> 75000000 </td>
+   <td align="right"> 1 </td>
+   <td align="right"> 75000000 </td>
   </tr>
   <tr>
-   <td> 2 </td>
-   <td> 72000000 </td>
+   <td align="right"> 2 </td>
+   <td align="right"> 72000000 </td>
   </tr>
   <tr>
-   <td> 3 </td>
-   <td> 81000000 </td>
+   <td align="right"> 3 </td>
+   <td align="right"> 81000000 </td>
   </tr>
   <tr>
-   <td> 4 </td>
-   <td> 83000000 </td>
+   <td align="right"> 4 </td>
+   <td align="right"> 83000000 </td>
   </tr>
   <tr>
-   <td> 5 </td>
-   <td> 83500000 </td>
+   <td align="right"> 5 </td>
+   <td align="right"> 83500000 </td>
   </tr>
   <tr>
-   <td> 6 </td>
-   <td> 86000000 </td>
+   <td align="right"> 6 </td>
+   <td align="right"> 86000000 </td>
   </tr>
   <tr>
-   <td> 7 </td>
-   <td> 87000000 </td>
+   <td align="right"> 7 </td>
+   <td align="right"> 87000000 </td>
   </tr>
   <tr>
-   <td> 8 </td>
-   <td> 88000000 </td>
+   <td align="right"> 8 </td>
+   <td align="right"> 88000000 </td>
   </tr>
   <tr>
-   <td> 9 </td>
-   <td> 86000000 </td>
+   <td align="right"> 9 </td>
+   <td align="right"> 86000000 </td>
   </tr>
 </tbody>
 </table>
-
 
 
 매출(그래프)
@@ -70,7 +67,6 @@ date: 2014년 7월
 월 평균 82,388,889원의 매출이 있었다.
 
 ![plot of chunk unnamed-chunk-4](revenue-figure/unnamed-chunk-4.png) 
-
 
 매출(그래프2)
 =========================================================
@@ -81,7 +77,6 @@ revenue-figure/unnamed-chunk-5.html
 morris
  '
 id=iframe-
-chart153b95b58ff70
+chartdb3112f87f93
 ></iframe>
 <style>iframe.rChart{ width: 100%; height: 400px;}</style>
-
