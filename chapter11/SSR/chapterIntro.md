@@ -9,7 +9,7 @@
 
 실행은 다음과 같이 한다.
 
-1. `SlidifyWithShinyrChrts`라는 디렉터리에 들어 있는 `SlidifyWithShinyrChrts.Rproj`이라는 프로젝트 파일을 클릭한다.
+1. 
 2. RStudio의 R 콘솔에서 다음과 같이 실행한다.
 
     ~~~~
