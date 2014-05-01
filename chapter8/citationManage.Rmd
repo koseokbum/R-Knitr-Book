@@ -1,0 +1,58 @@
+# 참고 문헌 추가하기 #
+
+여기서는 `knitcitations`라는 패키지를 활용하여 참고문헌을 추가하는 방법을 소개한다. 
+
+현재 디렉터리에 `references.bib`라는 bibtex 파일이 있다. bibtex 파일에 대해서는 책을 참고한다. 가장 중요한 것이 사이트 
+키(cite key)이다. 
+
+```
+@manual{rstudio,
+  address = {Boston, MA},
+	author = {RStudio Team},
+	organization = {RStudio, Inc.},
+	title = {RStudio: Integrated Development Environment for R},
+	url = {http://www.rstudio.com/},
+	year = 2012
+}
+```
+
+라는 bibentry에서 가장 처음 나오는 `rstudio`가 사이트 키이다.
+
+이제 패키지를 로딩하고, 이 bibtex 파일을 읽는다. `knitcitations` 패키지에는 `read.bibtex()`라는 함수가 있다. 
+
+```{r cache=FALSE, include=FALSE}
+library(knitcitations)
+refs <- read.bibtex("references.bib")
+```
+
+이렇게 하면 `refs`라는 객체에 파일에 포함되어 있는 내용들이 저장하게 되고, 각 엔트리는 `refs['사이트키`]`의 형태로 접근할 수 있다. 
+
+저자(연도) 형태의 참고 문헌을 쓰는 경우에는 `citet()`함수를 사용한다. 문서를 렌더링해서 아래 부분이 어떻게 바뀌는지 확인한다.
+
+----
+
+`r citet(refs['Xie:2013fk'])`에 따르면 
+
+----
+
+(저자 연도) 형태로 출력하게 하고 싶은 경우에는 `citep()` 함수를 사용한다. 문서를 렌더링해서 아래 부분이 어떻게 바뀌는지 확인한다.
+
+---
+
+`r citep(refs['schulte2012multi'])`
+
+---
+
+
+### 참고문헌 
+
+이렇게 쭉 문서를 만들고 나서, 결국에는 문서의 끝에서 참고문헌 목록을 한꺼번에 출력할 수 있는데, 이 경우 `bibliography()` 함수를 사용한다. 이 경우에 청크옵션을 `results='asis'`로 해 주어야 한다.
+
+> 자세한 내용은 http://www.carlboettiger.info/2012/05/30/knitcitations.html 사이트를 참고한다.
+
+
+
+```{r results='asis', echo=FALSE}
+bibliography()
+```
+
