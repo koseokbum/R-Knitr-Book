@@ -5,6 +5,7 @@
 <hr>
 
 ```{r echo=FALSE, message=FALSE}
+library(knitr)
 opts_chunk$set(echo=FALSE, comment=NA)
 library(XLConnect)
 library(dplyr)
