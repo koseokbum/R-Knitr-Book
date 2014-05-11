@@ -4,6 +4,7 @@ author: SBKo
 date: 2014년 7월
 
 ```{r echo=FALSE, message=FALSE}
+library(knitr)
 opts_chunk$set(echo=FALSE, comment=NA)
 library(XLConnect)
 library(dplyr)
