@@ -1,5 +1,10 @@
 ## R과 Knitr를 활용한 데이터 연동형 문서 만들기 예제 코드##
 
+### 원도우즈 환경에서 RStudio 사용시 고려할 부분
+
+원도우즈에서 RStudio에서 rmakdown을 사용할 때 생기는 문제를 완전하지는 않지만 다음과 같이 해 보는 것도 괜찮다.
+
+[rmakdown, Rsutiod, Windows](http://ksbapp.com/WindowsKorean.html)
 
 #### 사용법 ###
 
