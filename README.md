@@ -27,4 +27,13 @@
 
 - [샤이니의 기초](http://ksbapp.com/ShinyBasic.html)
 
+- [샤이니 앱 작성을 위한 기본 테크닉](http://ksbapp.com/BasicTechniques.html)
+
+- [샤이니 앱 꾸미기(레이아웃)](http://ksbapp.com/shinyLayout.html)
+
+- [샤이니 반응성](http://ksbapp.com/shinyReactivity.html)
+
+- [샤이니 앱에서 파일, 이미지 업로딩과 다운로딩](http://ksbapp.com/FileNImage.html)
+
+- [샤이니를 이용한 인터랙티브 문서](http://ksbapp.com/shinyInRmd.html)
 
