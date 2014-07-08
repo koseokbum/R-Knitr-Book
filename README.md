@@ -6,7 +6,7 @@
 - 가장 큰 차이점은 `팬독`(http://johnmacfarlane.net/pandoc/) 마크다운을 사용한다는 점이다. 그래서, 해당 사이트에서 팬독을 별도로 설치할 필요가 있다. 팬독 마크다운은 문서의 표현력이 높고, 다양한 포맷으로 문서를 전환시키는데 정말 놀라운 기능을 가지고 있다. 
 - `rmarkdown`은 아직(2014년 7월 8일부) CRAN에 등재되어 있지 않다. 따라서, 아래와 같은 코드를 R콘솔에서 실행하여 깃허브를 통해 설치한다. `devtools`라는 패키지가 설치되어 있지 않은 경우라면 `install.packages("devtool")`를 싫행하여 설치한다.
 
-    R> devtools::install_github("rstudio/rmarkdown")
+    devtools::install_github("rstudio/rmarkdown")
     
 - 또, Rmd 문서 내부에서 `YAML 사전정의부`(YAML front matter)를 사용한다는 점도 크게 달라진 부분이다. 윈도우즈 사용자라면 `YAML 사전정의부`에서 설정을 잡을 때 한글과 관련된 부분에서문제가 있을 수 있는데, 이와 관련해서는 아래를 참고한다. 
 
