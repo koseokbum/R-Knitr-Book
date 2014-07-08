@@ -15,7 +15,7 @@
 
 > 원도우즈에서 RStudio에서 rmakdown을 사용할 때 생기는 문제를 완전하지는 않지만 다음과 같이 해 보는 것도 괜찮다.
 
-- [rmakdown, Rsutiod, Windows 사용시 한글 사용의 문제](http://ksbapp.com/WindowsKorean.html)
+> - [rmakdown, Rsutiod, Windows 사용시 한글 사용의 문제](http://ksbapp.com/WindowsKorean.html)
 
 #### 사용법 ###
 
