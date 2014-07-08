@@ -1,6 +1,17 @@
 ## R과 Knitr를 활용한 데이터 연동형 문서 만들기 예제 코드##
 
-### 원도우즈 환경에서 RStudio 사용시 고려할 부분
+### RStudio, rmarkdown(R markdown version 2) 환경에서 작업하기 
+
+- `R markdown`이 버전업이 되면서 `rmarkdown`이 되었고, RStudio 0.98 버전부터는 기본적으로 `rmarkdown`을 사용하여 문서 작업을 할 수 있도록 환경이 바뀌었다. 
+- 가장 큰 차이점은 `팬독`(http://johnmacfarlane.net/pandoc/) 마크다운을 사용한다는 점이다. 그래서, 해당 사이트에서 팬독을 별도로 설치할 필요가 있다. 팬독 마크다운은 문서의 표현력이 높고, 다양한 포맷으로 문서를 전환시키는데 정말 놀라운 기능을 가지고 있다. 
+- `rmarkdown`은 아직(2014년 7월 8일부) CRAN에 등재되어 있지 않다. 따라서, 아래와 같은 코드를 R콘솔에서 실행하여 깃허브를 통해 설치한다. `devtools`라는 패키지가 설치되어 있지 않은 경우라면 `install.packages("devtool")`를 싫행하여 설치한다.
+
+    devtools::install_github("rstudio/rmarkdown")
+    
+- 또, Rmd 문서 내부에서 `YAML 사전정의부`(YAML front matter)를 사용한다는 점도 크게 달라진 부분이다. 윈도우즈 사용자라면 `YAML 사전정의부`에서 설정을 잡을 때 한글과 관련된 부분에서문제가 있을 수 있는데, 이와 관련해서는 아래를 참고한다. 
+
+
+#### 원도우즈 환경에서 RStudio 사용시 고려할 부분
 
 원도우즈에서 RStudio에서 rmakdown을 사용할 때 생기는 문제를 완전하지는 않지만 다음과 같이 해 보는 것도 괜찮다.
 
