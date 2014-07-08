@@ -57,3 +57,4 @@
 
 - [샤이니를 이용한 인터랙티브 문서](http://ksbapp.com/shinyInRmd.html)
 
+샤이니 웹 사이트(http://shiny.rstudio.com/articles/cheatsheet.html)에서  놀랍도록 잘 정리된 cheat sheet를 제공하고 있다.
