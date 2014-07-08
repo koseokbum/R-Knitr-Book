@@ -11,9 +11,9 @@
 - 또, Rmd 문서 내부에서 `YAML 사전정의부`(YAML front matter)를 사용한다는 점도 크게 달라진 부분이다. 윈도우즈 사용자라면 `YAML 사전정의부`에서 설정을 잡을 때 한글과 관련된 부분에서문제가 있을 수 있는데, 이와 관련해서는 아래를 참고한다. 
 
 
-#### 원도우즈 환경에서 RStudio 사용시 고려할 부분
+> 원도우즈 환경에서 RStudio 사용시 고려할 부분
 
-원도우즈에서 RStudio에서 rmakdown을 사용할 때 생기는 문제를 완전하지는 않지만 다음과 같이 해 보는 것도 괜찮다.
+> 원도우즈에서 RStudio에서 rmakdown을 사용할 때 생기는 문제를 완전하지는 않지만 다음과 같이 해 보는 것도 괜찮다.
 
 - [rmakdown, Rsutiod, Windows 사용시 한글 사용의 문제](http://ksbapp.com/WindowsKorean.html)
 
