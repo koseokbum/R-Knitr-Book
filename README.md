@@ -43,21 +43,3 @@
 
 - 각 폴더에는 `chapterIntro.md`라는 사용법을 간단하게 소개한 파일을 있다. 꼭 확인하고 자료들을 확인하기를 권한다. 
 
-
-### Shiny 업데이트와 관련된 내용 추가
-
-이 책은 `shiny` 패키지를 주요 챕터로 다루고 있는데,최근에 버전이 1.0으로 향상되어 이에 대해 별도로 정리하였다. 
-
-- [샤이니의 기초](http://ksbapp.com/ShinyBasic.html)
-
-- [샤이니 앱 작성을 위한 기본 테크닉](http://ksbapp.com/BasicTechniques.html)
-
-- [샤이니 앱 꾸미기(레이아웃)](http://ksbapp.com/shinyLayout.html)
-
-- [샤이니 반응성](http://ksbapp.com/shinyReactivity.html)
-
-- [샤이니 앱에서 파일, 이미지 업로딩과 다운로딩](http://ksbapp.com/FileNImage.html)
-
-- [샤이니를 이용한 인터랙티브 문서](http://ksbapp.com/shinyInRmd.html)
-
-[샤이니 웹 사이트](http://shiny.rstudio.com/articles/cheatsheet.html) 에서  놀랍도록 잘 정리된 cheat sheet를 제공하고 있다.
