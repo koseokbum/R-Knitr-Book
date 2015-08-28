@@ -6,7 +6,7 @@
 
 - 책을 집필할 때와 방법이 많이 바뀌었다. **니터** 자체는 큰 변화가 없으나, 알 마크다운 패키지가 버전업이 되어 [rmarkdown](http://rmarkdown.rstudio.com)이 되었고, 이 rmarkdown은 [팬독](http://johnmacfarlane.net/pandoc/)이란 도구를 내부적으로 사용한다. 
 
-- 자세한 내용은 [알마크다운 사이트](http://johnmacfarlane.net/pandoc/)를 참고한다. 
+- 자세한 내용은 [알마크다운 사이트](http://rmarkdown.rstudio.com)를 참고한다. 
 
 
 ### 예제 코드 사용법
